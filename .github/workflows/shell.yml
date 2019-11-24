@@ -13,4 +13,5 @@ jobs:
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
+    - run: gem install sassc
     - run: ruby test.rb
