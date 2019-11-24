@@ -1,0 +1,16 @@
+name: Shell
+on: [push, pull_request]
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ 'ubuntu', 'macos', 'windows' ]
+        ruby: [ '2.6.x' ]
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - run: ruby test.rb
