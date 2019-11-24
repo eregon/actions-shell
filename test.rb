@@ -8,6 +8,7 @@ gem_root = spec.gem_dir
 libsass = Dir.glob("#{gem_root}/lib/sassc/libsass.*").first
 p libsass
 system('file', libsass)
+system('otool', '-hv', libsass)
 
 puts
-system 'file /usr/lib/libssl*'
+system 'otool -hv /usr/lib/libssl.dylib'
