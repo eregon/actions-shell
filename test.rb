@@ -1,9 +1,10 @@
 puts RUBY_DESCRIPTION
 puts RUBY_PLATFORM
-puts
 
-require 'io/nonblock'
-io = File.new(__FILE__)
-p io.nonblock?
-io.nonblock = true
-p io.nonblock?
+puts
+puts "RbConfig::CONFIG"
+pp RbConfig::CONFIG.sort.to_h
+
+puts
+puts "RbConfig::MAKEFILE_CONFIG"
+pp RbConfig::MAKEFILE_CONFIG.sort.to_h
