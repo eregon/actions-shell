@@ -2,6 +2,10 @@ puts RUBY_DESCRIPTION
 puts RUBY_PLATFORM
 
 puts
+puts "ENV"
+pp ENV.sort.to_h
+
+puts
 puts "Signal.list"
 pp Signal.list
 
