@@ -16,3 +16,6 @@ pp RbConfig::CONFIG.sort.to_h
 puts
 puts "RbConfig::MAKEFILE_CONFIG"
 pp RbConfig::MAKEFILE_CONFIG.sort.to_h
+
+p File.stat(__FILE__).uid
+p File.stat(__FILE__).gid
