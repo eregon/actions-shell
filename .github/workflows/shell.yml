@@ -5,12 +5,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'ubuntu', 'macos', 'windows' ]
-        ruby: [ '2.6.x' ]
+        os: [ ubuntu, macos, windows ]
+        ruby: [ 2.7 ]
     runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
     - run: ruby test.rb
