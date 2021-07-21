@@ -9,8 +9,10 @@ jobs:
         ruby: [ 2.7 ]
     runs-on: ${{ matrix.os }}-latest
     steps:
+    - run: which bundle
     - uses: actions/checkout@master
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
+    - run: which bundle
     - run: ruby test.rb
