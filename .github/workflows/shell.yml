@@ -5,10 +5,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
+        os: [ ubuntu, macos ]
         ruby: [ 2.7 ]
     runs-on: ${{ matrix.os }}-latest
     steps:
+    - run: |
+        false
+        true
+    - run: false; true
+    - run: false && true
     - uses: actions/checkout@master
     - uses: ruby/setup-ruby@v1
       with:
