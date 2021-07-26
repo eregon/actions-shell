@@ -5,11 +5,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
+        os: [ ubuntu ]
         ruby: [ 2.7 ]
     runs-on: ${{ matrix.os }}-latest
     steps:
-    - run: which bundle
+    - run: docker --version
     - uses: actions/checkout@master
     - uses: ruby/setup-ruby@v1
       with:
