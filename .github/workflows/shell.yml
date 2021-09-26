@@ -5,14 +5,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
-        ruby: [ 2.7 ]
-    runs-on: ${{ matrix.os }}-latest
+        os: [ ubuntu-18.04, ubuntu-20.04, macos-10.15, macos-11, windows-2016, windows-2019 ]
+    runs-on: ${{ matrix.os }}
     steps:
-    - run: which bundle
-    - uses: actions/checkout@master
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - run: which bundle
-    - run: ruby test.rb
+    - run: echo ${{ matrix.os }}
+    - run: echo ${{ matrix.os }} | sed -E -e 's/(macos|windows)-.*/\1-latest/'
+      shell: bash
