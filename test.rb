@@ -1,12 +1,14 @@
-puts "RUBY_DESCRIPTION"
-puts RUBY_DESCRIPTION
+def show(code)
+  puts
+  puts code
+  p eval(code)
+end
 
-puts "RUBY_PLATFORM"
-puts RUBY_PLATFORM
+show "RUBY_DESCRIPTION"
+show "RUBY_PLATFORM"
 
 require 'etc'
-puts "Etc.uname[:release]"
-p Etc.uname[:release]
+show "Etc.uname[:release]"
 
 puts
 puts "RbConfig::CONFIG"
@@ -15,3 +17,6 @@ pp RbConfig::CONFIG.sort.to_h
 puts
 puts "RbConfig::MAKEFILE_CONFIG"
 pp RbConfig::MAKEFILE_CONFIG.sort.to_h
+
+show 'Etc.getpwnam("root")'
+show 'Etc.getgrnam("root")'
