@@ -7,16 +7,19 @@ end
 show "RUBY_DESCRIPTION"
 show "RUBY_PLATFORM"
 
-require 'etc'
-show "Etc.uname[:release]"
+require 'securerandom'
 
-puts
-puts "RbConfig::CONFIG"
-pp RbConfig::CONFIG.sort.to_h
+arr = []
+(1..100).each do |i|
+  r = SecureRandom.random_number(10)
+  puts "#{i}: #{r}"
+  arr << r
+end
 
-puts
-puts "RbConfig::MAKEFILE_CONFIG"
-pp RbConfig::MAKEFILE_CONFIG.sort.to_h
+puts arr.uniq
 
-show 'Etc.getpwnam("root")'
-show 'Etc.getgrnam("root")'
+# there might still be the one case in the
+# universe where we would have a 100times the
+# same number. But it's probably fine as an
+# indication...
+exit(arr.uniq.length > 1 ? 0 : 1)
