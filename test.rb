@@ -17,6 +17,3 @@ pp RbConfig::CONFIG.sort.to_h
 puts
 puts "RbConfig::MAKEFILE_CONFIG"
 pp RbConfig::MAKEFILE_CONFIG.sort.to_h
-
-show 'Etc.getpwnam("root")'
-show 'Etc.getgrnam("root")'
