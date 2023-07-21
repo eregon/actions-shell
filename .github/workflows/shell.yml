@@ -10,3 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - run: brew list | grep openssl
+    - run: which pkg-config
+    - run: pkg-config --list-all | grep openssl
+    - run: pkg-config --modversion openssl
+    - run: pkg-config --cflags openssl
+    - run: pkg-config --libs openssl
