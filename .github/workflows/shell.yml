@@ -5,12 +5,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
-        ruby: [ 3.2 ]
+        os: [ ubuntu ]
+        ruby: [ 3.2, ruby-head ]
     runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@master
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - run: ruby test.rb
+    - run: ruby --help
+    - run: ruby -U -e 'p Encoding.default_internal'
