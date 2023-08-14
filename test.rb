@@ -17,3 +17,6 @@ pp RbConfig::CONFIG.sort.to_h
 puts
 puts "RbConfig::MAKEFILE_CONFIG"
 pp RbConfig::MAKEFILE_CONFIG.sort.to_h
+
+show "RbConfig::CONFIG['host_os']"
+show "RbConfig::CONFIG['target_os']"
