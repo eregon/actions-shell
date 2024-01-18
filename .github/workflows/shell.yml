@@ -5,8 +5,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
-        ruby: [ 3.2 ]
+        os: [ windows ]
+        ruby: [ head, ucrt, mingw, mswin ]
     runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@master
