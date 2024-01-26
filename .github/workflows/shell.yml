@@ -5,12 +5,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
-        ruby: [ 3.2 ]
+        os: [ ubuntu, macos ]
+        ruby: [ truffleruby+graalvm-23.1.2 ]
     runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@master
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - run: ruby test.rb
+    - run: time ruby -e 'puts TruffleRuby.revision'
