@@ -11,9 +11,5 @@ require 'etc'
 show "Etc.uname[:release]"
 
 puts
-puts "RbConfig::CONFIG"
-pp RbConfig::CONFIG.sort.to_h
-
-puts
-puts "RbConfig::MAKEFILE_CONFIG"
-pp RbConfig::MAKEFILE_CONFIG.sort.to_h
+puts "ENV"
+pp ENV.sort.to_h
