@@ -9,7 +9,7 @@ jobs:
     #   with:
     #     ruby-version: 3.2
     - name: Setup SSH session
-      uses: lhotari/action-upterm@v1
+      uses: mxschmitt/action-tmate@v3
       with:
-        limit-access-to-users: eregon
+        limit-access-to-actor: true
     - run: ruby test.rb
