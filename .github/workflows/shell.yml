@@ -5,12 +5,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu, macos, windows ]
-        ruby: [ 3.2 ]
-    runs-on: ${{ matrix.os }}-latest
+        os: [ ubuntu-20.04, ubuntu-22.04, ubuntu-24.04 ]
+    runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@master
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - run: ruby test.rb
+      - run: ls -la /opt/hostedtoolcache/Ruby/3.2.4/x64/lib/ruby/gems/3.2.0/gems
+      - run: ls -la /opt/hostedtoolcache/Ruby/3.2.4/x64/lib/ruby/gems/3.2.0
