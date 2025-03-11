@@ -1,19 +1,3 @@
-def show(code)
-  puts
-  puts code
-  p eval(code)
-end
-
-show "RUBY_DESCRIPTION"
-show "RUBY_PLATFORM"
-
-require 'etc'
-show "Etc.uname[:release]"
-
-puts
-puts "RbConfig::CONFIG"
-pp RbConfig::CONFIG.sort.to_h
-
-puts
-puts "RbConfig::MAKEFILE_CONFIG"
-pp RbConfig::MAKEFILE_CONFIG.sort.to_h
+puts ENV.select { |k,v|
+  k.start_with?('JAVA_HOME')
+}.to_a
