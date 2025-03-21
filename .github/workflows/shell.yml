@@ -13,4 +13,5 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
+        windows-toolchain: none
     - run: ruby test.rb
