@@ -19,3 +19,6 @@ jobs:
       shell: bash
     - run: echo $JAVA_HOME_21_arm64
       shell: bash
+    - run: ls C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\21.0.6-7.0
+      shell: bash
+      if: startsWith(matrix.os, 'windows')
