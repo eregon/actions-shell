@@ -6,17 +6,16 @@ jobs:
       fail-fast: false
       matrix:
         os: [
-            ubuntu-20.04, ubuntu-22.04, ubuntu-24.04, # x64
+            ubuntu-22.04, ubuntu-24.04, # x64
             ubuntu-22.04-arm, ubuntu-24.04-arm, # arm64
             macos-13, # x64
             macos-14, macos-15, # arm64
-            windows-2019, windows-2022 # x64
+            windows-2019, windows-2022, # x64
+            windows-11-arm, # arm64
           ]
-        ruby: [ 3.4 ]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@master
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - run: ruby test.rb
+    - run: echo $JAVA_HOME_21_X64
+      shell: bash
+    - run: echo $JAVA_HOME_21_arm64
+      shell: bash
