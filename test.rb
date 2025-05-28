@@ -7,15 +7,8 @@ end
 show "RUBY_DESCRIPTION"
 show "RUBY_PLATFORM"
 
-require 'etc'
-show "Etc.uname[:release]"
-
-show "RbConfig::CONFIG.sort.to_h"
-
-show "RbConfig::MAKEFILE_CONFIG.sort.to_h"
-
+require 'win32ole'
 show '$"'
-
-show '$:'
-
-show '$:.map { |path| File.realpath(path) rescue "#{path} does not exist" }'
+show 'WIN32OLE'
+show 'WIN32OLE.constants'
+show 'WIN32OLE::TypeLib'
