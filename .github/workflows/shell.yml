@@ -3,8 +3,8 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ruby:3.2
+    # container:
+    #   image: ruby:3.2
     steps:
     - uses: actions/checkout@master
     # - uses: ruby/setup-ruby@v1
@@ -12,6 +12,6 @@ jobs:
     #     ruby-version: 3.4
     - run: ruby -v
     - run: pwd
-    # - run: node --version
-    # - run: which node
+    - run: node --version
+    - run: which node
     - run: cat /etc/os-release
