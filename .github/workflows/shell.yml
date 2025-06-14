@@ -2,16 +2,16 @@ name: Shell
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        ruby: [ ruby ]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    container:
+      image: ruby:3.2
     steps:
     - uses: actions/checkout@master
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby }}
-        windows-toolchain: none
-    - run: ruby test.rb
+        ruby-version: 3.4
+    - run: ruby -v
+    - run: pwd
+    - run: node --version
+    - run: which node
+    - run: cat /etc/os-release
