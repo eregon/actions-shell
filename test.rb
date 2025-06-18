@@ -18,4 +18,4 @@ show '$"'
 
 show '$:'
 
-show '$:.map { |path| File.realpath(path) rescue "#{path} does not exist" }'
+show "File.extname 'long_enough.not_to_be_embedded[ruby-core:31640]'"
