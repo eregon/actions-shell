@@ -5,8 +5,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        ruby: [ ruby ]
+        os: [ ubuntu-latest ]
+        ruby: [ truffleruby-23, truffleruby-24, ruby ]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@master

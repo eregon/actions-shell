@@ -1,21 +1,16 @@
-def show(code)
-  puts
-  puts code
-  pp eval(code)
+require 'bigdecimal'
+
+BigDecimal.singleton_class.prepend(
+  Module.new do
+    def save_rounding_mode
+      super
+    end
+  end
+)
+
+[:example].each do
+  BigDecimal.save_rounding_mode do
+    puts caller
+    sleep 1
+  end
 end
-
-show "RUBY_DESCRIPTION"
-show "RUBY_PLATFORM"
-
-require 'etc'
-show "Etc.uname[:release]"
-
-show "RbConfig::CONFIG.sort.to_h"
-
-show "RbConfig::MAKEFILE_CONFIG.sort.to_h"
-
-show '$"'
-
-show '$:'
-
-show "File.extname 'long_enough.not_to_be_embedded[ruby-core:31640]'"
