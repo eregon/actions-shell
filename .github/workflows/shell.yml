@@ -5,9 +5,9 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    # - uses: ruby/setup-ruby@v1
-    #   with:
-    #     ruby-version: 3.2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: truffleruby-head
     - name: Setup SSH session
       uses: mxschmitt/action-tmate@v3
       with:
