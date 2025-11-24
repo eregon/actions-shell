@@ -19,3 +19,5 @@ show '$"'
 show '$:'
 
 show "File.extname 'long_enough.not_to_be_embedded[ruby-core:31640]'"
+
+show "ENV"
