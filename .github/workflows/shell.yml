@@ -2,16 +2,18 @@ name: Shell
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        ruby: [ ruby ]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: ruby/setup-ruby@v1
+    - run: touch truffleruby-jvm.tar.gz
+    - run: touch truffleruby-native.tar.gz
+    - run: ls -l
+    - uses: actions/upload-artifact@v4
       with:
-        ruby-version: ${{ matrix.ruby }}
-        windows-toolchain: none
-    - run: ruby test.rb
+        path: ${{ github.workspace }}/truffleruby-*.tar.gz
+  get:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v4
+    - run: ls -l
+    - run: ls -l *
