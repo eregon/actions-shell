@@ -9,11 +9,14 @@ jobs:
     - run: ls -l
     - uses: actions/upload-artifact@v4
       with:
+        name: foo
         path: ${{ github.workspace }}/truffleruby-*.tar.gz
   get:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v4
+      with:
+        name: foo
     - run: ls -l
     - run: ls -l *
