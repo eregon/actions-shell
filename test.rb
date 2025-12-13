@@ -22,22 +22,22 @@ show "ENV"
 
 JAVA_HOME = "C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\21.0.9-10.0\\x64"
 
-show 'File.join(JAVA_HOME, "bin", "javac")'
+show 'File.join(JAVA_HOME, "bin", "javac.exe")'
 
-show 'File.exist?(File.join(JAVA_HOME, "bin", "javac"))'
-
-show <<'RUBY'
-"#{JAVA_HOME.tr('\\', '/')}/bin/javac"
-RUBY
-show <<'RUBY'
-File.exist?("#{JAVA_HOME.tr('\\', '/')}/bin/javac")
-RUBY
+show 'File.exist?(File.join(JAVA_HOME, "bin", "javac.exe"))'
 
 show <<'RUBY'
-"#{JAVA_HOME}\\bin\\javac"
+"#{JAVA_HOME.tr('\\', '/')}/bin/javac.exe"
 RUBY
 show <<'RUBY'
-File.exist?("#{JAVA_HOME}\\bin\\javac")
+File.exist?("#{JAVA_HOME.tr('\\', '/')}/bin/javac.exe")
+RUBY
+
+show <<'RUBY'
+"#{JAVA_HOME}\\bin\\javac.exe"
+RUBY
+show <<'RUBY'
+File.exist?("#{JAVA_HOME}\\bin\\javac.exe")
 RUBY
 
 show <<'RUBY'
