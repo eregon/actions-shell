@@ -18,6 +18,10 @@ show '$"'
 
 show '$:'
 
-show "File.extname 'long_enough.not_to_be_embedded[ruby-core:31640]'"
-
 show "ENV"
+
+show 'ENV["JAVA_HOME"]'
+
+show 'File.join(ENV["JAVA_HOME"], "bin", "javac")'
+
+show 'File.exist?(File.join(ENV["JAVA_HOME"], "bin", "javac"))'
