@@ -20,8 +20,8 @@ show '$:'
 
 show "ENV"
 
-show 'ENV["JAVA_HOME"]'
+JAVA_HOME = "C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\21.0.9-10.0\\x64"
 
-show 'File.join(ENV["JAVA_HOME"], "bin", "javac")'
+show 'File.join(JAVA_HOME, "bin", "javac")'
 
-show 'File.exist?(File.join(ENV["JAVA_HOME"], "bin", "javac"))'
+show 'File.exist?(File.join(JAVA_HOME, "bin", "javac"))'
