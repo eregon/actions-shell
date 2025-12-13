@@ -25,3 +25,10 @@ JAVA_HOME = "C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\21.0.9-10.0
 show 'File.join(JAVA_HOME, "bin", "javac")'
 
 show 'File.exist?(File.join(JAVA_HOME, "bin", "javac"))'
+
+show <<'RUBY'
+"#{JAVA_HOME.tr('\\', '/')}/bin/javac"
+RUBY
+show <<'RUBY'
+File.exist?("#{JAVA_HOME.tr('\\', '/')}/bin/javac")
+RUBY
