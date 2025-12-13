@@ -32,3 +32,10 @@ RUBY
 show <<'RUBY'
 File.exist?("#{JAVA_HOME.tr('\\', '/')}/bin/javac")
 RUBY
+
+show <<'RUBY'
+"#{JAVA_HOME}\\bin\\javac"
+RUBY
+show <<'RUBY'
+File.exist?("#{JAVA_HOME}\\bin\\javac")
+RUBY
