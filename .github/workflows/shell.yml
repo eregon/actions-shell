@@ -14,8 +14,8 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
     - run: ruby test.rb
-    - run: ls -l /Applications
-    - run: ls -l /Applications | grep -i Xcode
-    - run: xcrun --show-sdk-path
-    - run: xcrun --sdk macosx --show-sdk-version
-    - run: ls /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
+    - run: top -l 1 -s 0
+    - run: vm_stat
+    - run: top -l 1 -s 0 | head -n 15
+    - run: vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
+    - run: memory_pressure
